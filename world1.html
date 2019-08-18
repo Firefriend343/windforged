@@ -468,8 +468,8 @@
           let door = document.querySelector(".door");
           door.style.display = "none";
           
-          let enemies = document.getElementsByClassName("enemy");
-          while (6 < enemies.length) {
+          let enemies = document.getElementsByClassName("enemy1");
+          while (3 < enemies.length) {
             let enemy = enemies[0];
             bg.removeChild(enemy);
           }
@@ -502,7 +502,7 @@
             player1.makeCoin(500, 200);
             player1.makeCoin(500, 600);
 
-            let enemy1 = make new Enemy(300, 300);
+            let enemy1 = makeEnemy(300, 300);
             let enemyx = makeEnemy(math.random * 1200, math.random * 500);
             //let rival1 = new Rival(700, 480, "rival1");
             //let hunter1 = new Hunter(850, 500, "hunter1")
