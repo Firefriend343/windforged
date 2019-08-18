@@ -164,8 +164,9 @@
             enemyelement.classList.add('solid');
             enemyelement.classList.add('enemy');
             enemyelement.classList.add('target');
+            enemyelement.classList.add('sunday');
             enemyelement.src = "dungeon-bandit-pixilart.png";
-            enemyelement.style = "width:40px; height:52px;";
+            enemyelement.style = "position:absolute; width:40px; height:52px; border:1px solid red;";
             bg.appendChild(enemyelement);
             let enemy = new Enemy(x, y, null, element=enemyelement);
             return enemy;
