@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: darkred; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -238,25 +238,25 @@
               } else if (this.command == "jump") {
                  // Tried to jump but can't right now.
               } else if (this.command == "skin1") {
-                this.element.src = "final-aurum-pixilart.png";
+                this.element.src = "inky-pixilart.png";
               } else if (this.command == "skin2") {
-                window.setTimeout(function () { player1.element.src = "lizardfolk-warrior-(npc)-pixilart.png"; }, 2000);
+                window.setTimeout(function () { player1.element.src = "inky-pixilart.png"; }, 2000);
               } else if (this.command == "Aurum") {
-                this.element.src = "evilgeneral.png";
+                this.element.src = "inky-pixilart.png";
               } else if (this.command == "Ninja") {
-                this.element.src = "ninja.png"
+                this.element.src = "sunny-pixilart.png"
               } else if (this.command == "attack" && this.state != "attacking") {
                 if (this == player1) {
-                  window.setTimeout(function () { player1.element.src = "aurum-attack.png";  }, 200);
-                  window.setTimeout(function () { player1.element.src = "final-aurum-pixilart.png"; }, 300);
-                  window.setTimeout(function () { player1.element.src = "aurum-attack.png"; }, 500);
-                  window.setTimeout(function () { player1.element.src = "final-aurum-pixilart.png"; player1.state = "normal"; }, 600);
+                  window.setTimeout(function () { player1.element.src = "inky-pixilart.png";  }, 200);
+                  window.setTimeout(function () { player1.element.src = "inky-pixilart.png"; }, 300);
+                  window.setTimeout(function () { player1.element.src = "inky-pixilart.png"; }, 500);
+                  window.setTimeout(function () { player1.element.src = "inky-pixilart.png"; player1.state = "normal"; }, 600);
                 }
                 if (this == player2) {
-                  window.setTimeout(function () { player2.element.src = "argentum-ii-pixilart.png";  }, 200);
-                  window.setTimeout(function () { player2.element.src = "argentum-ii-pixilart.png"; }, 300);
-                  window.setTimeout(function () { player2.element.src = "argentum-ii-pixilart.png"; }, 500);
-                  window.setTimeout(function () { player2.element.src = "argentum-ii-pixilart.png"; player2.state = "normal"; }, 600);
+                  window.setTimeout(function () { player2.element.src = "sunny-pixilart.png";  }, 200);
+                  window.setTimeout(function () { player2.element.src = "sunny-pixilart.png"; }, 300);
+                  window.setTimeout(function () { player2.element.src = "sunny-pixilart.png"; }, 500);
+                  window.setTimeout(function () { player2.element.src = "sunny-pixilart.png"; player2.state = "normal"; }, 600);
                 }
                 let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "target",5 ,5);
                 if (this.facing == -1) {
@@ -334,11 +334,11 @@
               this.state = "jump!";
             } else if (this.x > player1.x + player1.width + 3) {
               this.ax = -1;
-              this.facing = -1;
+              this.facing = 1;
               this.element.style.transform = "scaleX(1)";
             } else if (this.x + this.width < player1.x - 3) {
               this.ax = 1;
-              this.facing = 1;
+              this.facing = -1;
               this.element.style.transform = "scaleX(-1)";
             } else {
               console.log ("attack player")
