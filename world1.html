@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: green; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -164,7 +164,8 @@
             enemyelement.classList.add('solid');
             enemyelement.classList.add('enemy');
             enemyelement.classList.add('target');
-            enemyelement.classList.add('sunday'); 
+            enemyelement.classList.add('sunday');
+            enemyelement.hp = 30;
             let sources = ["dungeon-bandit-pixilart.png", "redsword-recruit-pixilart.png", "servant-of-totality-pixilart.png"];
             let choice = Math.floor(Math.random() * 3);
             enemyelement.src = sources[choice];
