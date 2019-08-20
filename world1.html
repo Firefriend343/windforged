@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: khaki; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -239,9 +239,9 @@
               } else if (this.command == "skin2") {
                 window.setTimeout(function () { player1.element.src = "inky-pixilart.png"; }, 2000);
               } else if (this.command == "Aurum") {
-                this.element.src = "inky-pixilart.png";
+                this.element.src = "redsword-recruit-pixilart-png";
               } else if (this.command == "Ninja") {
-                this.element.src = "sunny-pixilart.png"
+                this.element.src = "dungeon-bandit-pixilart-png";
               } else if (this.command == "attack" && this.state != "attacking") {
                 if (this == player1) {
                   window.setTimeout(function () { player1.element.src = "inky-pixilart.png";  }, 200);
@@ -590,8 +590,34 @@
             player1.x = 100;
             player1.y = 100;
             player2.x = 200;
-            player2.y = 100;   
+            player2.y = 100; 
+            new Plat (400, 230, 520, 30, 580, 220, 0.5)
+            new Plat (300, 630, 220, 10, 560, 320, 0.5)
             
+          } else if (levelNum == 10) {
+            player1.x = 100;
+            player1.y = 100;
+            player2.x = 200;
+            player2.y = 100;   
+            new Plat (800, 60, 290, 30, 580, 220, 0.5)
+            new Plat (600, 730, 40, 10, 680, 670, 0.5)
+            
+          } else if (levelNum == 11) {
+            player1.x = 100;
+            player1.y = 100;
+            player2.x = 200;
+            player2.y = 100;  
+            let enemyx6 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx7 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx8 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx9 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx10 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx11 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx12 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx13 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx14 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx15 = makeEnemy(Math.random() * 800, Math.random() * 500);
+            let enemyx16 = makeEnemy(Math.random() * 800, Math.random() * 500);
           
             
           
