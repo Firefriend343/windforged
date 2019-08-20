@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: green; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: darkred; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -959,16 +959,28 @@
               levelNum = 8;
               makeLevel(levelNum);
             }
+          if (player1.gold >= 100 && levelNum == 8 || player2.gold >= 100 && levelNum == 8) {
+              let door = document.querySelector(".door");
+              door.style.display = "";
+          }
           if (player == player1 && player.gold >= 100 && levelNum == 8 || player == player2 && player.gold >= 100 && levelNum == 8) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 9;
             makeLevel(levelNum);
             }
+            if (player1.gold >= 100 && levelNum == 9 || player2.gold >= 100 && levelNum == 9) {
+              let door = document.querySelector(".door");
+              door.style.display = "";
+          }
           if (player == player1 && player.gold >= 100 && levelNum == 9 || player == player2 && player.gold >= 100 && levelNum == 9) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 10;
             makeLevel(levelNum);
             }
+            if (player1.gold >= 100 && levelNum == 10 || player2.gold >= 100 && levelNum == 10) {
+              let door = document.querySelector(".door");
+              door.style.display = "";
+          }
           if (player == player1 && player.gold >= 100 && levelNum == 10 || player == player2 && player.gold >= 100 && levelNum == 10) {
             if (collision(player.x, player.y, player, "door")){
               levelNum = 11;
