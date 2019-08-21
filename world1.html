@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: indigo; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: yellow; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -183,7 +183,7 @@
             let sources = ["redsword-taskmaster-pixilart.png", "redsword-taskmaster-pixilart.png", "redsword-taskmaster-pixilart.png"];
             let choice = Math.floor(Math.random() * 3);
             c2enemyelement.src = sources[choice];
-            c2enemyelement.style = "position:absolute; width:40px; height:52px;";
+            c2enemyelement.style = "position:absolute; width:58px; height:52px;";
             bg.appendChild(c2enemyelement);
             let c1enemy = new C2Enemy(x, y, null, element=c2enemyelement);
             return c1enemy;
