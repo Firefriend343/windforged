@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: DarkRed; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: indigo; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -171,6 +171,21 @@
             c1enemyelement.style = "position:absolute; width:40px; height:52px;";
             bg.appendChild(c1enemyelement);
             let c1enemy = new C1Enemy(x, y, null, element=c1enemyelement);
+            return c1enemy;
+        }
+    
+        function makeC2Enemy(x,y) {
+            let c2enemyelement = document.createElement("img");
+            c2enemyelement.classList.add('solid');
+            c2enemyelement.classList.add('enemy');
+            c2enemyelement.classList.add('target');
+            c2enemyelement.classList.add('sunday');
+            let sources = ["redsword-taskmaster-pixilart.png", "redsword-taskmaster-pixilart.png", "redsword-taskmaster-pixilart.png"];
+            let choice = Math.floor(Math.random() * 3);
+            c2enemyelement.src = sources[choice];
+            c2enemyelement.style = "position:absolute; width:40px; height:52px;";
+            bg.appendChild(c2enemyelement);
+            let c1enemy = new C2Enemy(x, y, null, element=c2enemyelement);
             return c1enemy;
         }
     
@@ -378,6 +393,59 @@
           }
         }
     
+        class C2Enemy extends Sprite {
+          ///should be targeting either player1 or player2, but not both (makes game stupidly easy)
+          decideAction() {
+            if (Math.random() < 0.1 && this.dy > -1 && this.dy < 1) {
+              this.dy -= 15;
+              this.state = "jump!";
+            } else if (this.x > player2.x + player2.width + 3) {
+              this.ax = -1;
+              this.facing = -1;
+              this.element.style.transform = "scaleX(-1)";
+            } else if (this.x + this.width < player2.x - 3) {
+              this.ax = 1;
+              this.facing = 1;
+              this.element.style.transform = "scaleX(1)";
+            } else {
+              console.log ("attack player")
+              let victim_el = collision(this.x + this.width +5, this.y + this.height/2, this, "player",5 ,5);
+              if (this.facing == -1) {
+                victim_el = collision(this.x - 10, this.y + this.height/2, this, "player", 5 ,5);
+              }
+              if (victim_el) { 
+                let victim = victim_el.sprite;
+                victim.hp -= this.damage;
+                victim.dx += this.knockback * this.facing;
+              }
+              this.state = "attacking";
+            }
+          }
+          displayAction() {
+            if (this.progressBar === undefined) {
+              this.progressBar = document.createElement("div");
+              this.progressBar.classList.add("bar");
+              bg.appendChild(this.progressBar);
+              let span = document.createElement("span");
+              this.progressBar.appendChild(span);
+            }
+            if (this.element.classList.contains("defeated")) {
+              this.progressBar.style.display = "none";
+            } else {
+              this.progressBar.style.display = "";
+              this.progressBar.firstChild.style.width = ((this.hp / 30) * 100) + "%";
+              this.progressBar.style.left = this.x + "px";
+              this.progressBar.style.top = this.y - 20 + "px";
+            }
+          }
+          
+          respawn() {
+            this.element.className = 'solid c2enemy target';
+            this.hp = 30; 
+            this.state = "normal";
+            this.makeCoin(Math.random() * 800, 30);
+          }
+        }
     
             
         //class Hunter extends Sprite {
@@ -473,6 +541,11 @@
             let enemy = c1enemies[0];
             bg.removeChild(c1enemy);
           }
+          let c2enemies = document.getElementsByClassName("c2enemy");
+          while (0 < c2enemies.length) {
+            let enemy = c2enemies[0];
+            bg.removeChild(c1enemy);
+          }
           let plats = document.getElementsByClassName("plat");
           while (0 < plats.length) {
             let plat = plats[0];
@@ -503,10 +576,11 @@
             player1.makeCoin(500, 600);
 
             let enemyx1 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
-            let Gx2 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
+            let enemyx2 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
             let enemyx3 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
             let enemyx4 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
             let enemyx5 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
+            let enemyz1 = makeC2Enemy(600, 400);
             //let rival1 = new Rival(700, 480, "rival1");
             //let hunter1 = new Hunter(850, 500, "hunter1")
             
