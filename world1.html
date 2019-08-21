@@ -415,7 +415,7 @@
               }
               if (victim_el) { 
                 let victim = victim_el.sprite;
-                victim.hp -= this.damage;
+                victim.hp -= this.damage + 5;
                 victim.dx += this.knockback * this.facing;
               }
               this.state = "attacking";
