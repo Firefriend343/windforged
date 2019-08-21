@@ -1,0 +1,10 @@
+- Enemies don't respawn, but new enemies each level
+- FIX DEATH GLITCH:
+  1. Players can still press keys and activate functions when "dead"
+  2. Enemies can still press keys and activate functions when "dead"
+  3. Players and Enemies go into "defeated" mode, but then jump right back to "skating" or "attack player".
+  4. Find a way to have players go into a continous "defeated" mode for 20 seconds.
+  5. Find a way to delete enemies after they die.
+- "Arrows"
+- Fix image urls (not main focus)
+- Add more levels
