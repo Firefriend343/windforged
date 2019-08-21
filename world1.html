@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: yellow; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -396,8 +396,8 @@
         class C2Enemy extends Sprite {
           ///should be targeting either player1 or player2, but not both (makes game stupidly easy)
           decideAction() {
-            if (Math.random() < 0.1 && this.dy > -1 && this.dy < 1) {
-              this.dy -= 15;
+            if (Math.random() < 0.01 && this.dy > -1 && this.dy < 1) {
+              this.dy -= 10;
               this.state = "jump!";
             } else if (this.x > player2.x + player2.width + 3) {
               this.ax = -1;
@@ -433,7 +433,7 @@
               this.progressBar.style.display = "none";
             } else {
               this.progressBar.style.display = "";
-              this.progressBar.firstChild.style.width = ((this.hp / 30) * 100) + "%";
+              this.progressBar.firstChild.style.width = ((this.hp / 100) * 100) + "%";
               this.progressBar.style.left = this.x + "px";
               this.progressBar.style.top = this.y - 20 + "px";
             }
@@ -521,7 +521,8 @@
         player1.hp = 150
         player2.damage = 10;
         player2.knockback = 10;
-        player2.hp = 150
+        player2.hp = 150;
+        enemyz1.hp = 100;
         let levelNum = 1;
 
         function makeLevel(levelNum) {
@@ -580,7 +581,7 @@
             let enemyx3 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
             let enemyx4 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
             let enemyx5 = makeC1Enemy(Math.random() * 1200, Math.random() * 500);
-            let enemyz1 = makeC2Enemy(600, 400);
+            let enemyz1 = makeC2Enemy(1000, 400);
             //let rival1 = new Rival(700, 480, "rival1");
             //let hunter1 = new Hunter(850, 500, "hunter1")
             
@@ -844,6 +845,7 @@
             player.element.className = 'defeated';
             player.state = "defeated"
             window.setTimeout(function () {
+              if (player = player1){ 
               player.respawn();
               player.x = player.spawnx;
               player.y = player.spawny;
@@ -852,6 +854,7 @@
               player.ax = 0;
               player.ay = 0;
               player.clinging = false;
+              }
             }, 6000);
             player.hp = 100;
           } else if (player.hp > 150) {
