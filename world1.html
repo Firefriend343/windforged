@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: tomato; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -185,6 +185,7 @@
             let choice = Math.floor(Math.random() * 3);
             c2enemyelement.src = sources[choice];
             c2enemyelement.style = "position:absolute; width:58px; height:52px;";
+            c2enemyelement.hp = 100;
             bg.appendChild(c2enemyelement);
             let c1enemy = new C2Enemy(x, y, null, element=c2enemyelement);
             return c1enemy;
@@ -844,8 +845,7 @@
           /// change to defeated image
             player.element.className = 'defeated';
             player.state = "defeated"
-            window.setTimeout(function () {
-              if (player = player1){ 
+            window.setTimeout(function () { 
               player.respawn();
               player.x = player.spawnx;
               player.y = player.spawny;
@@ -854,7 +854,6 @@
               player.ax = 0;
               player.ay = 0;
               player.clinging = false;
-              }
             }, 6000);
             player.hp = 100;
           } else if (player.hp > 150) {
