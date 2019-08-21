@@ -2,7 +2,7 @@
   <head>
     <title> Neverwinter Level 1 </title>
      <style>
-      .plat { background: tomato; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
+      .plat { background: purple; position: absolute; border-radius: 8px; border: solid grey 2px; transition: 0.5s;}
       .wind { background: lightblue; position: absolute; border-radius: 20px; opacity: 0.3}
       .coin { background: gold; position: absolute; border-radius: 40px; border: solid brown 2px; width: 30px; height: 30px; opacity: 0.3}
       .defeated { width: 0px !important; height: 0px !important; transition: 0.1s; }
@@ -20,6 +20,7 @@
     </style>
   </head>
 <body>
+  NEW UPDATES PENDING........
     <div id="bg" style="width:1300px; height:630px; background:white; border:2px solid black; margin: 2px;">
     <img id="player1" class="solid player" src="inky-pixilart.png" style="position:absolute;" width=40 height=52>
     <img id="player2" class="solid player" src="sunny-pixilart.png" style="position:absolute;" width=40 height=52>
@@ -185,7 +186,6 @@
             let choice = Math.floor(Math.random() * 3);
             c2enemyelement.src = sources[choice];
             c2enemyelement.style = "position:absolute; width:58px; height:52px;";
-            c2enemyelement.hp = 100;
             bg.appendChild(c2enemyelement);
             let c1enemy = new C2Enemy(x, y, null, element=c2enemyelement);
             return c1enemy;
@@ -435,7 +435,7 @@
               this.progressBar.style.display = "none";
             } else {
               this.progressBar.style.display = "";
-              this.progressBar.firstChild.style.width = ((this.hp / 100) * 100) + "%";
+              this.progressBar.firstChild.style.width = ((this.hp / 30) * 100) + "%";
               this.progressBar.style.left = this.x + "px";
               this.progressBar.style.top = this.y - 20 + "px";
             }
